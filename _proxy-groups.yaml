@@ -1,0 +1,79 @@
+proxy-groups:
+    # 138,164s/  - {"\?name"\?: \?"\?\([^"]\+\).\+/  - "\1"/g
+    # 🧭
+  - name: 🔰 节点选择
+    type: select
+    interval: 500
+    proxies:
+      - 🧭 自动选择
+      - INSERT ALL_PROVIDERS
+      - 🎯 全球直连
+
+  - name: 🧭 自动选择
+    type: fallback
+    url: "http://www.gstatic.com/generate_204"
+    interval: 500
+    proxies:
+      - INSERT PRIOR_PROXIES
+      - INSERT ALL_PROVIDERS
+      - 🎯 全球直连
+
+  - name: 🎮 warmane
+    type: select
+    proxies:
+      - INSERT 🎮 warmane
+      - INSERT ALL_PROVIDERS
+      - something you don't know
+      - other things you don't know
+      - 🎯 全球直连
+
+      # edu.lovess.top
+      # 120,147s/name: "\([^",]\+\)/name: ""\1"/g"
+
+  - name: 🇺🇲美国专线
+    type: fallback
+    url: "http://www.gstatic.com/generate_204"
+    interval: 500
+    proxies:
+      - 🔰 节点选择
+      - 🎯 全球直连
+
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - 🔰 节点选择
+      - 🎯 全球直连
+  - name: 🌏 国内媒体
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🔰 节点选择
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🔰 节点选择
+  - name: 📲 电报信息
+    type: select
+    proxies:
+      - 🔰 节点选择
+      - 🎯 全球直连
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🔰 节点选择
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🔰 节点选择
+      - 🎯 全球直连
